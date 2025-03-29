@@ -48,11 +48,15 @@ public class JWTservice {
     // ----------------------------------- Get the username on the token (01.04)-----------------------------------
 
     public String getUserName(String token) {
-        return Jwts
-                .parser()
-                .verifyWith(secretKey).build()
-                .parseSignedClaims(token)
-                .getPayload()
-                .getSubject();
+        try {
+            return Jwts
+                    .parser()
+                    .verifyWith(secretKey).build()
+                    .parseSignedClaims(token)
+                    .getPayload()
+                    .getSubject();
+        } catch (Exception e) {
+            return "Invalid JWT Token";
+        }
     }
 }
