@@ -1,19 +1,22 @@
 package lk.ijse.cmjd109.jwtauthenticationproject.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lk.ijse.cmjd109.jwtauthenticationproject.service.JWTservice;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 public class HomeController {
 
-    @GetMapping("/test")
-    public String home() {
-        return "Hello World";
+    private final JWTservice jwTservice;
+
+    @GetMapping("/userName")
+    public String getUserName(@RequestParam String token) {
+        return jwTservice.getUserName(token);          // Get UserName in token
     }
 
     @PostMapping("/login")
     public String login() {
-        return "Hello Login";
+        return jwTservice.generateJWTToken();        // Get a Token
     }
 }

@@ -44,5 +44,13 @@ public class JWTservice {
                 .compact();
     }
 
-
+    // ----------------------------------- Get the username on the token -----------------------------------
+    public String getUserName(String token) {
+        return Jwts
+                .parser()
+                .verifyWith(secretKey).build()
+                .parseSignedClaims(token)
+                .getPayload()
+                .getSubject();
+    }
 }
