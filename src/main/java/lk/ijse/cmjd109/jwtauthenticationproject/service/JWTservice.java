@@ -10,13 +10,14 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import java.util.Date;
 
+// 01
 @Service
 @RequiredArgsConstructor
 public class JWTservice {
 
     private final SecretKey secretKey;
 
-    //-----------------------Secret Key Generated--------------------------
+    //-----------------------Secret Key Generated (01.02) --------------------------
 
     // "HmacSHA256" this algorithm used
     public JWTservice() {
@@ -29,7 +30,7 @@ public class JWTservice {
     }
 
 
-    // -------------------------- JWT Token Generated --------------------------
+    // -------------------------- JWT Token Generated (01.03)--------------------------
 
     // subject( username)
     // issuedAt( today time eka set kranwa)
@@ -44,7 +45,7 @@ public class JWTservice {
                 .compact();
     }
 
-    // ----------------------------------- Get the username on the token -----------------------------------
+    // ----------------------------------- Get the username on the token (01.04)-----------------------------------
 
     public String getUserName(String token) {
         return Jwts
