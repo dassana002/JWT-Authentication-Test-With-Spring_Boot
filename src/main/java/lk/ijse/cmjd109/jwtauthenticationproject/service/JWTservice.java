@@ -45,6 +45,7 @@ public class JWTservice {
     }
 
     // ----------------------------------- Get the username on the token -----------------------------------
+
     public String getUserName(String token) {
         return Jwts
                 .parser()

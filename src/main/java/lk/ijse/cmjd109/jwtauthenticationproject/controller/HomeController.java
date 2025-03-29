@@ -10,13 +10,15 @@ public class HomeController {
 
     private final JWTservice jwTservice;
 
-    @GetMapping("/userName")
+    // Get UserName in token
+    @GetMapping("/username")
     public String getUserName(@RequestParam String token) {
-        return jwTservice.getUserName(token);          // Get UserName in token
+        return jwTservice.getUserName(token);
     }
 
+    // Get a Token
     @PostMapping("/login")
     public String login() {
-        return jwTservice.generateJWTToken();        // Get a Token
+        return jwTservice.generateJWTToken();
     }
 }
