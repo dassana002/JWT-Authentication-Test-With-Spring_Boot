@@ -53,7 +53,6 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder(12);  // password eke tiyena characters ganana 12 ta wadinm hodai
     }
 
-
     @Bean
     public UserDetailsService userDetailService() {
         return new UserDetailService(passwordEncoder());
